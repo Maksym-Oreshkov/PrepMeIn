@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
+import AnimatedGrid from "@/components/AnimatedGrid";
 
 const monaSans = Mona_Sans({
   variable: "--font-mona-sans",
@@ -9,7 +10,7 @@ const monaSans = Mona_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PrepWise",
+  title: "PrepMeIn",
   description: "An AI-powered platform for preparing for mock interviews",
 };
 
@@ -20,8 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={` ${monaSans.className} antialiased pattern`}>
-        {children}
+      <body className={`${monaSans.className} antialiased`}>
+        <AnimatedGrid />
+
+        <div className="relative z-10">{children}</div>
+
         <Toaster />
       </body>
     </html>

@@ -160,8 +160,8 @@ const Agent = ({
             <Image
               src="/ai-avatar.png"
               alt="profile-image"
-              width={65}
-              height={54}
+              width={539}
+              height={539}
               className="object-cover"
             />
             {isSpeaking && <span className="animate-speak" />}

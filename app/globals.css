@@ -309,7 +309,7 @@
 }
 
 @utility blue-gradient-dark {
-  @apply bg-gradient-to-b from-[#171532] to-[#08090D];
+  @apply pl-2 pr-2 bg-gradient-to-b from-[#171532] to-[#08090D];
 }
 
 @utility blue-gradient {
