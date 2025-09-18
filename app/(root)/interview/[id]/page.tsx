@@ -2,7 +2,7 @@ import { getInterviewById } from "@/lib/actions/general.action";
 import { getRandomInterviewCover } from "@/lib/utils";
 import { redirect } from "next/navigation";
 import Image from "next/image";
-import DisplayTechIcons from "@/components/ui/DisplayTechIcons";
+import DisplayTechIcons from "@/components/DisplayTechIcons";
 import Agent from "@/components/Agent";
 import { getCurrentUser } from "@/lib/actions/auth.action";
 

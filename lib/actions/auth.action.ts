@@ -1,7 +1,6 @@
 "use server";
 
 import { auth, db } from "@/firebase/admin";
-import { CollectionReference, DocumentData } from "firebase-admin/firestore";
 import { cookies } from "next/headers";
 
 // Session duration (1 week)
@@ -50,11 +49,12 @@ export async function signUp(params: SignUpParams) {
       success: true,
       message: "Account created successfully. Please sign in.",
     };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error creating user:", error);
 
     // Handle Firebase specific errors
-    if (error.code === "auth/email-already-exists") {
+    const err = error as { code?: string };
+    if (err.code === "auth/email-already-exists") {
       return {
         success: false,
         message: "This email is already in use",
@@ -80,8 +80,8 @@ export async function signIn(params: SignInParams) {
       };
 
     await setSessionCookie(idToken);
-  } catch (error: any) {
-    console.log("");
+  } catch (error) {
+    console.error("Error during sign in:", error);
 
     return {
       success: false,
